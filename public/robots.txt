@@ -1,0 +1,28 @@
+# Robots.txt for Bilal Ahmed Portfolio
+# Allow search engines to crawl the website
+
+User-agent: *
+Allow: /
+Allow: /projects
+Allow: /contact
+Disallow: /admin
+Disallow: /studio/*
+Disallow: /.next
+Disallow: /node_modules
+
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Specific rules for Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Specify sitemap location
+Sitemap: https://bilalahmed.dev/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Request rate
+Request-rate: 10/1m
