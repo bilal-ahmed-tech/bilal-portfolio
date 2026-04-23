@@ -15,7 +15,14 @@ export const metadata: Metadata = {
     template: "%s | Bilal Ahmed",
   },
   description: "Frontend developer specializing in React and Next.js",
-  keywords: ["Frontend Developer", "React", "Next.js", "JavaScript", "Web Development", "UI/UX"],
+  keywords: [
+    "Frontend Developer",
+    "React",
+    "Next.js",
+    "JavaScript",
+    "Web Development",
+    "UI/UX",
+  ],
   authors: [{ name: "Bilal Ahmed" }],
   creator: "Bilal Ahmed",
   robots: "index, follow",
@@ -56,7 +63,8 @@ export default function RootLayout({
               name: "Bilal Ahmed",
               url: siteConfig.baseUrl,
               jobTitle: "Frontend Developer",
-              description: "Frontend developer specializing in React and Next.js",
+              description:
+                "Frontend developer specializing in React and Next.js",
               image: `${siteConfig.baseUrl}/og-image.png`,
               sameAs: [
                 "https://github.com/bilal-ahmed-tech",
@@ -70,8 +78,26 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const stored = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = stored ?? (prefersDark ? 'dark' : 'light');
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              })();
+            `,
+          }}
+        />
       </head>
-      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
+      <body
+        className={`${inter.className} antialiased`}
+        suppressHydrationWarning>
         <ThemeProvider>
           <Header />
           {children}
