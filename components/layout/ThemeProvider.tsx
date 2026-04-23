@@ -33,13 +33,15 @@ const subscribe = (listener: () => void) => {
 const getClientSnapshot = () => currentTheme;
 const getServerSnapshot = () => "dark" as Theme;
 
-// Initialize theme from localStorage or system preference
+// Initialize theme on client-side only
 if (typeof window !== "undefined") {
   const stored = localStorage.getItem("theme") as Theme | null;
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const initial: Theme = stored ?? (prefersDark ? "dark" : "light");
 
-  if (initial !== currentTheme) setTheme(initial);
+  if (initial !== currentTheme) {
+    currentTheme = initial;
+  }
 
   // Listen for system theme changes — only applies if user has no stored preference
   window
@@ -55,7 +57,7 @@ export function useTheme() {
   const theme = useSyncExternalStore(
     subscribe,
     getClientSnapshot,
-    getServerSnapshot
+    getServerSnapshot,
   );
 
   const toggleTheme = () => {

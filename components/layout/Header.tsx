@@ -40,7 +40,10 @@ function Dropdown({
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -62,8 +65,7 @@ function Dropdown({
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="true"
-        className="flex items-center gap-1 px-3 py-2 text-sm lg:text-base font-medium rounded-lg transition-all duration-200 text-slate-600 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
-      >
+        className="flex items-center gap-1 px-3 py-2 text-sm lg:text-base font-medium rounded-lg transition-all duration-200 text-slate-600 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500">
         {label}
         <ChevronDown
           size={14}
@@ -78,8 +80,7 @@ function Dropdown({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.95 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 py-2 z-50 overflow-hidden"
-          >
+            className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 py-2 z-50 overflow-hidden">
             {items.map((item) => (
               <Link
                 key={item.href}
@@ -88,8 +89,7 @@ function Dropdown({
                   setIsOpen(false);
                   onNavigate?.();
                 }}
-                className="flex items-center px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-violet-50 dark:hover:bg-violet-500/10 hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:bg-violet-50 dark:focus-visible:bg-violet-500/10 transition-colors duration-150"
-              >
+                className="flex items-center px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-violet-50 dark:hover:bg-violet-500/10 hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:bg-violet-50 dark:focus-visible:bg-violet-500/10 transition-colors duration-150">
                 {item.label}
               </Link>
             ))}
@@ -108,6 +108,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const isHomePage = pathname === "/";
 
@@ -118,6 +119,11 @@ export default function Header() {
     restDelta: 0.001,
   });
 
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
   // Scroll shadow
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -125,16 +131,15 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Active section — uses scroll position instead of IntersectionObserver
-  // This is more reliable for sections of varying heights
+  // Active section
   useEffect(() => {
     if (!isHomePage) return;
 
     const sectionIds = ["about", "skills", "services", "projects", "contact"];
 
     const getActiveSection = () => {
-      const scrollY = window.scrollY + 120; // offset for header height
-
+      if (typeof window === "undefined") return;
+      const scrollY = window.scrollY + 120;
       let current = "";
       for (const id of sectionIds) {
         const el = document.getElementById(id);
@@ -147,7 +152,7 @@ export default function Header() {
     };
 
     window.addEventListener("scroll", getActiveSection, { passive: true });
-    getActiveSection(); // run on mount
+    getActiveSection();
     return () => window.removeEventListener("scroll", getActiveSection);
   }, [isHomePage]);
 
@@ -202,7 +207,7 @@ export default function Header() {
       }
       setMenuOpen(false);
     },
-    [isHomePage, router]
+    [isHomePage, router],
   );
 
   const isActiveLink = (link: NavLink) => {
@@ -218,8 +223,7 @@ export default function Header() {
       {/* Skip to main content */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-violet-600 focus:text-white focus:font-medium focus:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2"
-      >
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-violet-600 focus:text-white focus:font-medium focus:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2">
         Skip to main content
       </a>
 
@@ -229,8 +233,7 @@ export default function Header() {
           scrolled
             ? "border-b border-slate-200/50 dark:border-slate-800/50 bg-white/90 dark:bg-slate-950/90 shadow-lg backdrop-blur-xl"
             : "border-b border-slate-100/50 dark:border-slate-800/30 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl"
-        }`}
-      >
+        }`}>
         {/* Scroll progress bar */}
         <motion.div
           style={{ scaleX }}
@@ -240,20 +243,17 @@ export default function Header() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-
             {/* Logo */}
             <Link
               href="/"
-              className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded transition-colors duration-200"
-            >
+              className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded transition-colors duration-200">
               Bilal<span className="text-violet-500">.</span>
             </Link>
 
             {/* Desktop nav */}
             <nav
               className="hidden md:flex items-center space-x-1 lg:space-x-2"
-              aria-label="Main navigation"
-            >
+              aria-label="Main navigation">
               {sectionLinks.map((link) => {
                 const isActive = isActiveLink(link);
                 return (
@@ -264,14 +264,17 @@ export default function Header() {
                       isActive
                         ? "text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-500/10"
                         : "text-slate-600 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-500/10"
-                    }`}
-                  >
+                    }`}>
                     {link.label}
                     {isActive && (
                       <motion.span
                         layoutId="activeIndicator"
                         className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-violet-500 rounded-full"
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 30,
+                        }}
                       />
                     )}
                   </button>
@@ -291,16 +294,20 @@ export default function Header() {
               <button
                 onClick={toggleTheme}
                 aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-                className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 transition-all duration-200"
-              >
-                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 transition-all duration-200">
+                {mounted ? (
+                  theme === "dark" ? <Sun size={20} /> : <Moon size={20} />
+                ) : (
+                  <Sun size={20} />
+                )}
               </button>
 
               {/* Hire Me — desktop */}
               <button
-                onClick={() => handleNavigation({ label: "Contact", href: "#contact" })}
-                className="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-linear-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 active:scale-[0.97] active:from-violet-700 active:to-purple-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 text-white font-medium text-sm lg:text-base transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-violet-500/25"
-              >
+                onClick={() =>
+                  handleNavigation({ label: "Contact", href: "#contact" })
+                }
+                className="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-linear-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 active:scale-[0.97] active:from-violet-700 active:to-purple-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 text-white font-medium text-sm lg:text-base transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-violet-500/25">
                 Hire Me
               </button>
 
@@ -310,8 +317,7 @@ export default function Header() {
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={menuOpen}
                 aria-controls="mobile-menu"
-                className="md:hidden p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 transition-all duration-200"
-              >
+                className="md:hidden p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 transition-all duration-200">
                 <AnimatePresence mode="wait">
                   {menuOpen ? (
                     <motion.div
@@ -319,8 +325,7 @@ export default function Header() {
                       initial={{ rotate: -90, opacity: 0 }}
                       animate={{ rotate: 0, opacity: 1 }}
                       exit={{ rotate: 90, opacity: 0 }}
-                      transition={{ duration: 0.15 }}
-                    >
+                      transition={{ duration: 0.15 }}>
                       <X size={24} />
                     </motion.div>
                   ) : (
@@ -329,8 +334,7 @@ export default function Header() {
                       initial={{ rotate: 90, opacity: 0 }}
                       animate={{ rotate: 0, opacity: 1 }}
                       exit={{ rotate: -90, opacity: 0 }}
-                      transition={{ duration: 0.15 }}
-                    >
+                      transition={{ duration: 0.15 }}>
                       <Menu size={24} />
                     </motion.div>
                   )}
@@ -351,13 +355,11 @@ export default function Header() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
-              className="md:hidden overflow-hidden"
-            >
+              className="md:hidden overflow-hidden">
               <div className="border-t border-slate-200/50 dark:border-slate-800/50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl">
                 <nav
                   className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1"
-                  aria-label="Mobile navigation"
-                >
+                  aria-label="Mobile navigation">
                   {sectionLinks.map((link) => {
                     const isActive = isActiveLink(link);
                     return (
@@ -368,8 +370,7 @@ export default function Header() {
                           isActive
                             ? "bg-violet-50 dark:bg-violet-500/10 text-violet-600 dark:text-violet-400"
                             : "text-slate-600 dark:text-slate-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 hover:text-violet-500 dark:hover:text-violet-400"
-                        }`}
-                      >
+                        }`}>
                         {link.label}
                       </button>
                     );
@@ -382,8 +383,7 @@ export default function Header() {
                         key={item.href}
                         href={item.href!}
                         onClick={() => setMenuOpen(false)}
-                        className="block w-full px-4 py-2.5 rounded-lg text-sm text-slate-600 dark:text-slate-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 active:scale-[0.98] transition-all duration-200"
-                      >
+                        className="block w-full px-4 py-2.5 rounded-lg text-sm text-slate-600 dark:text-slate-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 active:scale-[0.98] transition-all duration-200">
                         {item.label}
                       </Link>
                     ))}
@@ -391,9 +391,10 @@ export default function Header() {
 
                   {/* Mobile Hire Me */}
                   <button
-                    onClick={() => handleNavigation({ label: "Contact", href: "#contact" })}
-                    className="w-full mt-2 px-4 py-3 rounded-lg bg-linear-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 text-white font-medium text-base transition-all duration-200 shadow-md"
-                  >
+                    onClick={() =>
+                      handleNavigation({ label: "Contact", href: "#contact" })
+                    }
+                    className="w-full mt-2 px-4 py-3 rounded-lg bg-linear-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 text-white font-medium text-base transition-all duration-200 shadow-md">
                     Hire Me
                   </button>
                 </nav>
