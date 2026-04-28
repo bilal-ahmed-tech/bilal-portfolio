@@ -312,14 +312,21 @@ Access Sanity Studio at `/studio` route to manage:
 
 ## 📸 Screenshots
 
-_Screenshots will be added here_ - Add your website screenshots:
+### Hero Section - Landing Page
 
-- Homepage hero section
-- Projects showcase
-- Services section
-- Mobile view
-- Dark mode version
-- Contact form
+<img src="screenshots/Hero.png" width="100%" alt="Portfolio hero section with navigation and CTA" />
+
+### Projects Showcase
+
+<img src="screenshots/Projects.png" width="100%" alt="Projects listing with cards and details" />
+
+### Contact Page
+
+<img src="screenshots/Contact.png" width="100%" alt="Contact form section" />
+
+### Dark Mode
+
+<img src="screenshots/DarkMode.png" width="100%" alt="Portfolio in dark mode theme" />
 
 ---
 
