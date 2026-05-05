@@ -1,6 +1,11 @@
 "use client";
 
-import { FaGithub, FaLinkedin, FaWhatsapp, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaWhatsapp,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 import { Mail } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
@@ -58,23 +63,19 @@ export default function Footer() {
     <footer
       ref={ref}
       aria-label="Site footer"
-      className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950"
-    >
+      className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
-
           {/* Brand */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             custom={0}
-            className="flex flex-col gap-4"
-          >
+            className="flex flex-col gap-4">
             <Link
               href="/"
-              className="text-xl font-bold tracking-tight text-slate-900 dark:text-white hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded transition-colors duration-200 w-fit"
-            >
+              className="text-xl font-bold tracking-tight text-slate-900 dark:text-white hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded transition-colors duration-200 w-fit">
               Bilal<span className="text-violet-500">.</span>
             </Link>
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
@@ -85,17 +86,28 @@ export default function Footer() {
             {/* Social icons */}
             <div className="flex items-center gap-3">
               {socialLinks.map(({ href, label, icon: Icon, bg }) => (
-                <Link
+                <motion.a
                   key={href}
                   href={href}
                   target={href.startsWith("mailto") ? undefined : "_blank"}
-                  rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                  rel={
+                    href.startsWith("mailto")
+                      ? undefined
+                      : "noopener noreferrer"
+                  }
                   aria-label={label}
-                  className={`group relative w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 transition-all duration-300 overflow-hidden`}
-                >
-                  <span className={`absolute inset-0 ${bg} scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg`} />
-                  <Icon className="relative z-10 w-4 h-4 group-hover:text-white transition-colors duration-300" />
-                </Link>
+                  whileHover={{ y: -4, scale: 1.08 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                  className="group relative w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950">
+                  {/* Background fill */}
+                  <span
+                    className={`absolute inset-0 ${bg} opacity-0 group-hover:opacity-100 transition-opacity duration-200`}
+                  />
+
+                  {/* Icon */}
+                  <Icon className="relative z-10 w-4 h-4 transition-colors duration-200 group-hover:text-white" />
+                </motion.a>
               ))}
             </div>
           </motion.div>
@@ -106,8 +118,7 @@ export default function Footer() {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             custom={0.1}
-            className="flex flex-col gap-4"
-          >
+            className="flex flex-col gap-4">
             <h4 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-widest">
               Quick Links
             </h4>
@@ -117,8 +128,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="group inline-flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded transition-colors duration-200"
-                    >
+                      className="group inline-flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded transition-colors duration-200">
                       <span className="w-0 group-hover:w-2 h-px bg-violet-500 transition-all duration-200" />
                       {link.label}
                     </a>
@@ -134,28 +144,29 @@ export default function Footer() {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             custom={0.2}
-            className="flex flex-col gap-4"
-          >
+            className="flex flex-col gap-4">
             <h4 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-widest">
               Contact
             </h4>
             <div className="flex flex-col gap-3">
               <a
                 href="mailto:bilalahmed19015@gmail.com"
-                className="text-sm text-slate-500 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded transition-colors duration-200 w-fit"
-              >
+                className="text-sm text-slate-500 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded transition-colors duration-200 w-fit">
                 bilalahmed19015@gmail.com
               </a>
               <a
                 href="https://wa.me/923276742759"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-slate-500 dark:text-slate-400 hover:text-green-500 dark:hover:text-green-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded transition-colors duration-200 w-fit"
-              >
+                className="text-sm text-slate-500 dark:text-slate-400 hover:text-green-500 dark:hover:text-green-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 rounded transition-colors duration-200 w-fit">
                 +92 327-6742759
               </a>
               <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-                <FaMapMarkerAlt size={14} className="text-violet-500 shrink-0" aria-hidden="true" />
+                <FaMapMarkerAlt
+                  size={14}
+                  className="text-violet-500 shrink-0"
+                  aria-hidden="true"
+                />
                 <span>Rahim Yar Khan, Pakistan</span>
               </div>
             </div>
@@ -168,8 +179,7 @@ export default function Footer() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           custom={0.3}
-          className="border-t border-slate-200 dark:border-slate-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4"
-        >
+          className="border-t border-slate-200 dark:border-slate-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-400 dark:text-slate-500">
             © {new Date().getFullYear()} Bilal Ahmed. All rights reserved.
           </p>

@@ -244,7 +244,7 @@ export default function About() {
               custom={0.4}
               className="grid grid-cols-3 gap-3"
             >
-              <StatCounter value={3} suffix="+" label="Projects Done" delay={0.5} />
+              <StatCounter value={6} suffix="+" label="Projects Done" delay={0.5} />
               <StatCounter value={1} suffix="+" label="Happy Clients" delay={0.6} />
               <StatCounter value={100} suffix="%" label="On Time Delivery" delay={0.7} />
             </motion.div>
@@ -254,7 +254,7 @@ export default function About() {
               custom={0.5}
               href="/Bilal-CV.pdf"
               download
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 active:scale-[0.97] active:bg-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 text-white font-medium transition-all duration-200 shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40 w-fit"
+              className="group inline-flex mx-auto md:mx-0 items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 active:scale-[0.97] active:bg-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 text-white font-medium transition-all duration-200 shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40 w-fit"
               aria-label="Download CV (PDF)"
             >
               <Download
