@@ -156,7 +156,7 @@ export default function Contact() {
               />
               <div className="relative bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-xl border border-slate-200 dark:border-slate-800">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-full bg-linear-to-br from-violet-500 to-purple-500 flex items-center justify-center text-2xl font-bold text-white shadow-lg select-none">
+                  <div className="w-16 aspect-square rounded-full bg-linear-to-br from-violet-500 to-purple-500 flex items-center justify-center text-2xl font-bold text-white shadow-lg select-none">
                     BA
                   </div>
                   <div>
