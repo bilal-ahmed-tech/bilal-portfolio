@@ -192,19 +192,37 @@ export default function Header() {
         setMenuOpen(false);
         return;
       }
-      if (link.href?.startsWith("#")) {
+
+      if (!link.href) return;
+
+      // Section navigation
+      if (link.href.startsWith("#")) {
+        const targetId = link.href.substring(1);
+
+        // If already on homepage → smooth scroll
         if (isHomePage) {
-          const el = document.getElementById(link.href.substring(1));
+          const el = document.getElementById(targetId);
+
           if (el) {
-            el.scrollIntoView({ behavior: "smooth" });
-            setActiveSection(link.href.substring(1));
+            el.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+
+            // Clean URL hash update
+            window.history.replaceState(null, "", `/#${targetId}`);
+
+            setActiveSection(targetId);
           }
         } else {
-          router.push(`/${link.href}`);
+          // Navigate from another page to homepage section
+          router.push(`/#${targetId}`);
         }
-      } else if (link.href) {
+      } else {
+        // Normal page navigation
         router.push(link.href);
       }
+
       setMenuOpen(false);
     },
     [isHomePage, router],
@@ -296,7 +314,11 @@ export default function Header() {
                 aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
                 className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-violet-500 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 transition-all duration-200">
                 {mounted ? (
-                  theme === "dark" ? <Sun size={20} /> : <Moon size={20} />
+                  theme === "dark" ? (
+                    <Sun size={20} />
+                  ) : (
+                    <Moon size={20} />
+                  )
                 ) : (
                   <Sun size={20} />
                 )}
