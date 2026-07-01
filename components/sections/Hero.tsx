@@ -55,7 +55,7 @@ export default function Hero() {
   return (
     <section
       aria-label="Hero section"
-      className="relative min-h-screen flex items-center bg-white dark:bg-slate-950 overflow-hidden"
+      className="relative min-h-dvh flex items-center bg-white dark:bg-slate-950 overflow-hidden"
     >
       {/* Background grid */}
       <div
@@ -73,9 +73,9 @@ export default function Hero() {
         className="absolute bottom-1/4 left-1/4 w-75 h-75 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full">
+      <div className="relative justify-items-center z-10 max-w-6xl mx-auto px-4 py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
         {/* Left — Text */}
-        <div className="flex flex-col items-start order-2 md:order-1">
+        <div className="flex flex-col items-center order-2 md:order-1">
           {/* Badge */}
           <motion.div
             variants={fadeUp}
@@ -94,7 +94,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={0.1}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 leading-[1.1]"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 leading-[1.1]"
           >
             Hi, I&apos;m{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-500 via-violet-500 to-purple-600">
@@ -139,7 +139,7 @@ export default function Hero() {
           >
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 active:scale-[0.97] active:bg-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 text-white font-medium transition-all duration-200 shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40"
+              className="group inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 active:scale-[0.97] active:bg-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 text-white font-medium transition-all duration-200 shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40"
             >
               View Projects
               <ExternalLink
@@ -150,7 +150,7 @@ export default function Hero() {
             <a
               href="/Bilal-CV.pdf"
               download
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-500 dark:border-slate-700 hover:border-violet-500 dark:hover:border-violet-500 hover:bg-violet-50 dark:hover:bg-violet-500/10 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-all duration-200"
+              className="group inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-slate-500 dark:border-slate-700 hover:border-violet-500 dark:hover:border-violet-500 hover:bg-violet-50 dark:hover:bg-violet-500/10 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-all duration-200"
             >
               <Download
                 size={15}
