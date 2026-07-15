@@ -7,9 +7,13 @@ export default async function Services() {
   let services: Service[] = [];
 
   try {
-    services = await client.fetch(servicesQuery, {}, {
-      next: { revalidate: 60 },
-    });
+    services = await client.fetch(
+      servicesQuery,
+      {},
+      {
+        next: { revalidate: 60 },
+      },
+    );
   } catch (error) {
     console.error("Failed to fetch services:", error);
   }
@@ -20,8 +24,7 @@ export default async function Services() {
     <section
       id="services"
       aria-label="Services section"
-      className="py-24 bg-slate-50 dark:bg-slate-900/50"
-    >
+      className="py-24 bg-slate-50 dark:bg-slate-900/50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-16">
           <p className="text-sm font-medium text-violet-500 uppercase tracking-widest mb-3">
@@ -31,8 +34,9 @@ export default async function Services() {
             My Services
           </h2>
           <p className="max-w-xl text-slate-500 dark:text-slate-400">
-            From landing pages to full React applications — I build what your
-            business needs.
+            From landing pages and dashboards to complete full-stack web
+            products, I help businesses launch fast, scalable, and
+            conversion-focused digital experiences.
           </p>
         </div>
 

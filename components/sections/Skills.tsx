@@ -135,8 +135,9 @@ export default function Skills() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="max-w-xl text-slate-500 dark:text-slate-400">
-            Technologies I use to build fast, accessible, and visually polished
-            web experiences.
+            I work across the full product stack — building responsive
+            interfaces, wiring up APIs, and delivering maintainable solutions
+            that scale with the product.
           </motion.p>
         </div>
 

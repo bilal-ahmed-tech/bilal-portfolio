@@ -65,8 +65,7 @@ function StatCounter({ value, suffix, label, delay }: StatProps) {
       custom={delay}
       className="flex flex-col items-center p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-violet-500/50 dark:hover:border-violet-500/50 transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
       role="status"
-      aria-label={`${label}: ${count}${suffix}`}
-    >
+      aria-label={`${label}: ${count}${suffix}`}>
       <span className="text-3xl font-bold text-violet-500 mb-1">
         {count}
         {suffix}
@@ -92,7 +91,10 @@ function InfoItem({ icon: Icon, label, value, href }: InfoItemProps) {
   return (
     <div className="flex items-center gap-3 w-full group">
       <div className="w-8 h-8 rounded-lg bg-violet-500/10 border border-violet-500/20 flex items-center justify-center shrink-0 group-hover:bg-violet-500 transition-colors duration-200">
-        <Icon size={14} className="text-violet-500 group-hover:text-white transition-colors duration-200" />
+        <Icon
+          size={14}
+          className="text-violet-500 group-hover:text-white transition-colors duration-200"
+        />
       </div>
       <div className="flex flex-wrap items-center gap-2">
         <span className="text-xs font-medium text-slate-400 dark:text-slate-500 w-20">
@@ -101,8 +103,7 @@ function InfoItem({ icon: Icon, label, value, href }: InfoItemProps) {
         {href ? (
           <a
             href={href}
-            className="text-sm text-slate-700 dark:text-slate-300 hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded transition-colors duration-200"
-          >
+            className="text-sm text-slate-700 dark:text-slate-300 hover:text-violet-500 dark:hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 rounded transition-colors duration-200">
             {value}
           </a>
         ) : (
@@ -149,8 +150,7 @@ export default function About() {
       id="about"
       ref={ref}
       aria-label="About section"
-      className="py-24 bg-slate-50 dark:bg-slate-900/50 overflow-hidden"
-    >
+      className="py-24 bg-slate-50 dark:bg-slate-900/50 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left – Image */}
@@ -158,8 +158,7 @@ export default function About() {
             variants={imageReveal}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="relative flex justify-center"
-          >
+            className="relative flex justify-center">
             <div
               aria-hidden="true"
               className="absolute top-4 left-4 w-full h-full rounded-3xl border-2 border-violet-500/20 -z-10"
@@ -167,7 +166,7 @@ export default function About() {
             <div className="relative w-full max-w-sm rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl shadow-slate-200/50 dark:shadow-slate-900/50 bg-slate-100 dark:bg-slate-800">
               <Image
                 src="/profile-pic.png"
-                alt="Bilal Ahmed — Creative Frontend Developer"
+                alt="Bilal Ahmed — Full Stack Developer"
                 width={400}
                 height={500}
                 className="object-cover w-full h-auto"
@@ -183,7 +182,7 @@ export default function About() {
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <div className="bg-white/10 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl border border-white/20 p-3 shadow-lg">
                   <p className="text-white font-bold text-sm">Bilal Ahmed</p>
-                  <p className="text-white/70 text-xs">Creative Frontend Developer</p>
+                  <p className="text-white/70 text-xs">Full Stack Developer</p>
                 </div>
               </div>
             </div>
@@ -193,47 +192,43 @@ export default function About() {
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="flex flex-col gap-6"
-          >
+            className="flex flex-col gap-6">
             <motion.p
               variants={fadeUp}
               custom={0}
-              className="text-sm font-medium text-violet-500 uppercase tracking-widest"
-            >
+              className="text-sm font-medium text-violet-500 uppercase tracking-widest">
               Get to know me
             </motion.p>
 
             <motion.h2
               variants={fadeUp}
               custom={0.1}
-              className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white"
-            >
+              className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
               About Me
             </motion.h2>
 
             <motion.div
               variants={fadeUp}
               custom={0.2}
-              className="flex flex-col gap-3"
-            >
+              className="flex flex-col gap-3">
               <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
-                Hi! I&apos;m Bilal, a passionate Frontend Developer based in Rahim
-                Yar Khan, Pakistan. I specialize in building fast, accessible, and
-                visually polished web experiences using React and Next.js.
+                Hi! I&apos;m Bilal, a full-stack developer based in Rahim Yar
+                Khan, Pakistan. I create modern web experiences that blend
+                thoughtful UI design, strong frontend architecture, and reliable
+                backend functionality into one seamless product.
               </p>
               <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
-                I&apos;m currently available for freelance projects and actively
-                expanding into full-stack development. Whether you need a landing
-                page, a web app, or anything in between — I&apos;d love to work
-                with you!
+                I&apos;m available for freelance and contract work, helping
+                founders and businesses turn ideas into scalable digital
+                products with a clear focus on performance, usability, and
+                long-term maintainability.
               </p>
             </motion.div>
 
             <motion.div
               variants={fadeUp}
               custom={0.3}
-              className="flex flex-col gap-3"
-            >
+              className="flex flex-col gap-3">
               {infoItems.map((item) => (
                 <InfoItem key={item.label} {...item} />
               ))}
@@ -242,11 +237,25 @@ export default function About() {
             <motion.div
               variants={fadeUp}
               custom={0.4}
-              className="grid grid-cols-3 gap-3"
-            >
-              <StatCounter value={6} suffix="+" label="Projects Done" delay={0.5} />
-              <StatCounter value={1} suffix="+" label="Happy Clients" delay={0.6} />
-              <StatCounter value={100} suffix="%" label="On Time Delivery" delay={0.7} />
+              className="grid grid-cols-3 gap-3">
+              <StatCounter
+                value={6}
+                suffix="+"
+                label="Projects Done"
+                delay={0.5}
+              />
+              <StatCounter
+                value={1}
+                suffix="+"
+                label="Happy Clients"
+                delay={0.6}
+              />
+              <StatCounter
+                value={100}
+                suffix="%"
+                label="On Time Delivery"
+                delay={0.7}
+              />
             </motion.div>
 
             <motion.a
@@ -255,8 +264,7 @@ export default function About() {
               href="/Bilal-CV.pdf"
               download
               className="group inline-flex mx-auto md:mx-0 items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 active:scale-[0.97] active:bg-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 text-white font-medium transition-all duration-200 shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40 w-fit"
-              aria-label="Download CV (PDF)"
-            >
+              aria-label="Download CV (PDF)">
               <Download
                 size={16}
                 className="group-hover:translate-y-0.5 transition-transform duration-200"

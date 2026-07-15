@@ -25,10 +25,14 @@ export default function Contact() {
     subject: "",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
     if (errors[e.target.name]) {
       setErrors({ ...errors, [e.target.name]: "" });
@@ -95,8 +99,7 @@ export default function Contact() {
       id="contact"
       ref={ref}
       aria-label="Contact section"
-      className="relative py-28 overflow-hidden bg-linear-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
-    >
+      className="relative py-28 overflow-hidden bg-linear-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       <div
         aria-hidden="true"
         className="absolute top-0 -left-40 w-80 h-80 bg-violet-300/20 dark:bg-violet-500/10 rounded-full blur-3xl animate-pulse"
@@ -110,13 +113,11 @@ export default function Contact() {
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center mb-20"
-        >
+          className="text-center mb-20">
           <motion.div
             variants={fadeUp}
             custom={0}
-            className="inline-flex items-center gap-3 bg-violet-500/10 px-4 py-2 rounded-full border border-violet-500/20 mb-6"
-          >
+            className="inline-flex items-center gap-3 bg-violet-500/10 px-4 py-2 rounded-full border border-violet-500/20 mb-6">
             <span className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
             <span className="text-sm font-medium text-violet-600 dark:text-violet-400 uppercase tracking-wider">
               Get in Touch
@@ -126,9 +127,8 @@ export default function Contact() {
           <motion.h2
             variants={fadeUp}
             custom={0.1}
-            className="text-4xl md:text-5xl font-bold bg-linear-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 bg-clip-text text-transparent"
-          >
-            Let&apos;s Create Something Amazing
+            className="text-4xl md:text-5xl font-bold bg-linear-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">
+            Let&apos;s Build Something That Performs
           </motion.h2>
 
           <motion.div
@@ -143,13 +143,11 @@ export default function Contact() {
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="space-y-8"
-          >
+            className="space-y-8">
             <motion.div
               variants={fadeUp}
               custom={0.3}
-              className="relative group"
-            >
+              className="relative group">
               <div
                 aria-hidden="true"
                 className="absolute -inset-1 bg-linear-to-r from-violet-500 to-purple-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"
@@ -164,7 +162,7 @@ export default function Contact() {
                       Bilal Ahmed
                     </h3>
                     <p className="text-slate-500 dark:text-slate-400">
-                      Frontend Developer & UI Engineer
+                      Full Stack Developer & Product Builder
                     </p>
                   </div>
                 </div>
@@ -173,8 +171,9 @@ export default function Contact() {
                   <span className="font-semibold text-slate-900 dark:text-white">
                     Rahim Yar Khan, Pakistan
                   </span>
-                  , I specialize in building fast, accessible web experiences
-                  with React and Next.js.
+                  , I turn product ideas into polished web solutions with
+                  thoughtful UI, API-driven logic, and scalable deployment
+                  workflows.
                 </p>
               </div>
             </motion.div>
@@ -183,8 +182,7 @@ export default function Contact() {
               <a
                 href="mailto:bilalahmed19015@gmail.com"
                 aria-label="Send email to Bilal Ahmed"
-                className="flex items-center gap-5 p-5 rounded-xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200 dark:border-slate-800 hover:border-violet-500 dark:hover:border-violet-500 hover:shadow-lg active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 transition-all duration-300 group"
-              >
+                className="flex items-center gap-5 p-5 rounded-xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200 dark:border-slate-800 hover:border-violet-500 dark:hover:border-violet-500 hover:shadow-lg active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 transition-all duration-300 group">
                 <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center group-hover:bg-violet-500 transition-colors duration-300 shrink-0">
                   <MdEmail className="w-6 h-6 text-violet-500 group-hover:text-white transition-colors duration-300" />
                 </div>
@@ -203,8 +201,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Contact Bilal Ahmed on WhatsApp"
-                className="flex items-center gap-5 p-5 rounded-xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200 dark:border-slate-800 hover:border-green-500 dark:hover:border-green-500 hover:shadow-lg active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 transition-all duration-300 group"
-              >
+                className="flex items-center gap-5 p-5 rounded-xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm border border-slate-200 dark:border-slate-800 hover:border-green-500 dark:hover:border-green-500 hover:shadow-lg active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 transition-all duration-300 group">
                 <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center group-hover:bg-green-500 transition-colors duration-300 shrink-0">
                   <FaWhatsapp className="w-6 h-6 text-green-500 group-hover:text-white transition-colors duration-300" />
                 </div>
@@ -240,21 +237,27 @@ export default function Contact() {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             custom={0.5}
-            className="relative"
-          >
+            className="relative">
             <div
               aria-hidden="true"
               className="absolute inset-0 bg-linear-to-r from-violet-500/5 to-purple-500/5 rounded-3xl blur-2xl"
             />
             <div className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 p-8 md:p-10">
               <div className="flex items-center gap-3 mb-8">
-                <FaPaperPlane className="w-5 h-5 text-violet-500" aria-hidden="true" />
+                <FaPaperPlane
+                  className="w-5 h-5 text-violet-500"
+                  aria-hidden="true"
+                />
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
                   Send a Message
                 </h3>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6" noValidate aria-label="Contact form">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-6"
+                noValidate
+                aria-label="Contact form">
                 <div className="relative">
                   <input
                     id="name"
@@ -269,12 +272,14 @@ export default function Contact() {
                   />
                   <label
                     htmlFor="name"
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 transition-all duration-200 peer-focus:top-2 peer-focus:text-xs peer-focus:text-violet-500 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs pointer-events-none"
-                  >
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 transition-all duration-200 peer-focus:top-2 peer-focus:text-xs peer-focus:text-violet-500 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs pointer-events-none">
                     Your Name
                   </label>
                   {errors.name && (
-                    <p id="name-error" role="alert" className="text-xs text-red-500 mt-1">
+                    <p
+                      id="name-error"
+                      role="alert"
+                      className="text-xs text-red-500 mt-1">
                       {errors.name}
                     </p>
                   )}
@@ -294,12 +299,14 @@ export default function Contact() {
                   />
                   <label
                     htmlFor="email"
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 transition-all duration-200 peer-focus:top-2 peer-focus:text-xs peer-focus:text-violet-500 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs pointer-events-none"
-                  >
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 transition-all duration-200 peer-focus:top-2 peer-focus:text-xs peer-focus:text-violet-500 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs pointer-events-none">
                     Email Address
                   </label>
                   {errors.email && (
-                    <p id="email-error" role="alert" className="text-xs text-red-500 mt-1">
+                    <p
+                      id="email-error"
+                      role="alert"
+                      className="text-xs text-red-500 mt-1">
                       {errors.email}
                     </p>
                   )}
@@ -313,18 +320,22 @@ export default function Contact() {
                     value={formState.subject}
                     onChange={handleChange}
                     aria-invalid={!!errors.subject}
-                    aria-describedby={errors.subject ? "subject-error" : undefined}
+                    aria-describedby={
+                      errors.subject ? "subject-error" : undefined
+                    }
                     className={inputClass("subject")}
                     placeholder=" "
                   />
                   <label
                     htmlFor="subject"
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 transition-all duration-200 peer-focus:top-2 peer-focus:text-xs peer-focus:text-violet-500 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs pointer-events-none"
-                  >
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 transition-all duration-200 peer-focus:top-2 peer-focus:text-xs peer-focus:text-violet-500 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs pointer-events-none">
                     Subject
                   </label>
                   {errors.subject && (
-                    <p id="subject-error" role="alert" className="text-xs text-red-500 mt-1">
+                    <p
+                      id="subject-error"
+                      role="alert"
+                      className="text-xs text-red-500 mt-1">
                       {errors.subject}
                     </p>
                   )}
@@ -338,18 +349,22 @@ export default function Contact() {
                     value={formState.message}
                     onChange={handleChange}
                     aria-invalid={!!errors.message}
-                    aria-describedby={errors.message ? "message-error" : undefined}
+                    aria-describedby={
+                      errors.message ? "message-error" : undefined
+                    }
                     className={`${inputClass("message")} resize-none`}
                     placeholder=" "
                   />
                   <label
                     htmlFor="message"
-                    className="absolute left-4 top-5 text-slate-500 dark:text-slate-400 transition-all duration-200 peer-focus:top-2 peer-focus:text-xs peer-focus:text-violet-500 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs pointer-events-none"
-                  >
+                    className="absolute left-4 top-5 text-slate-500 dark:text-slate-400 transition-all duration-200 peer-focus:top-2 peer-focus:text-xs peer-focus:text-violet-500 peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-xs pointer-events-none">
                     Message
                   </label>
                   {errors.message && (
-                    <p id="message-error" role="alert" className="text-xs text-red-500 mt-1">
+                    <p
+                      id="message-error"
+                      role="alert"
+                      className="text-xs text-red-500 mt-1">
                       {errors.message}
                     </p>
                   )}
@@ -358,8 +373,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full py-4 rounded-xl bg-linear-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2"
-                >
+                  className="w-full py-4 rounded-xl bg-linear-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2">
                   {status === "loading" ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                   ) : (
@@ -371,8 +385,7 @@ export default function Contact() {
                 {status === "success" && (
                   <div
                     role="status"
-                    className="mt-4 p-3 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-xl text-center text-sm flex items-center justify-center gap-2"
-                  >
+                    className="mt-4 p-3 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-xl text-center text-sm flex items-center justify-center gap-2">
                     <CheckCircle size={16} />
                     <span>Message sent! I&apos;ll reply soon.</span>
                   </div>
@@ -380,8 +393,7 @@ export default function Contact() {
                 {status === "error" && (
                   <div
                     role="alert"
-                    className="mt-4 p-3 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-xl text-center text-sm flex items-center justify-center gap-2"
-                  >
+                    className="mt-4 p-3 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-xl text-center text-sm flex items-center justify-center gap-2">
                     <XCircle size={16} />
                     <span>Something went wrong. Please try again.</span>
                   </div>

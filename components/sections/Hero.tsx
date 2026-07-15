@@ -55,8 +55,7 @@ export default function Hero() {
   return (
     <section
       aria-label="Hero section"
-      className="relative min-h-dvh flex items-center bg-white dark:bg-slate-950 overflow-hidden"
-    >
+      className="relative min-h-dvh flex items-center bg-white dark:bg-slate-950 overflow-hidden">
       {/* Background grid */}
       <div
         aria-hidden="true"
@@ -82,8 +81,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={0}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-500 dark:text-violet-400 text-sm font-medium mb-6 select-none"
-          >
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-500 dark:text-violet-400 text-sm font-medium mb-6 select-none">
             <span className="w-2 h-2 rounded-full bg-violet-500 dark:bg-violet-400 animate-pulse" />
             Open to freelance & full-time opportunities
           </motion.div>
@@ -94,8 +92,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={0.1}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 leading-[1.1]"
-          >
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 leading-[1.1]">
             Hi, I&apos;m{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-500 via-violet-500 to-purple-600">
               Bilal Ahmed
@@ -108,11 +105,10 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={0.2}
-            className="flex items-center gap-3 mb-5"
-          >
+            className="flex items-center gap-3 mb-5">
             <div className="h-px w-8 bg-linear-to-r from-violet-500 to-transparent" />
             <p className="text-lg font-medium text-slate-600 dark:text-slate-300">
-              Creative Frontend Developer
+              Full Stack Developer
             </p>
           </motion.div>
 
@@ -122,11 +118,10 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={0.3}
-            className="text-base text-slate-500 dark:text-slate-400 leading-relaxed mb-8 max-w-lg"
-          >
-            I build fast, accessible, and visually polished web experiences
-            using React and Next.js. Currently expanding into full-stack
-            development.
+            className="text-base text-center text-slate-500 dark:text-slate-400 leading-relaxed mb-8 max-w-lg">
+            I build high-performance web applications from frontend to backend,
+            combining clean UI design, API integrations, and scalable product
+            thinking.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -135,12 +130,10 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={0.4}
-            className="flex flex-wrap items-center gap-3 mb-10"
-          >
+            className="flex flex-wrap items-center gap-3 mb-10">
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 active:scale-[0.97] active:bg-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 text-white font-medium transition-all duration-200 shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40"
-            >
+              className="group inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 active:scale-[0.97] active:bg-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 text-white font-medium transition-all duration-200 shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40">
               View Projects
               <ExternalLink
                 size={15}
@@ -150,8 +143,7 @@ export default function Hero() {
             <a
               href="/Bilal-CV.pdf"
               download
-              className="group inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-slate-500 dark:border-slate-700 hover:border-violet-500 dark:hover:border-violet-500 hover:bg-violet-50 dark:hover:bg-violet-500/10 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-all duration-200"
-            >
+              className="group inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-slate-500 dark:border-slate-700 hover:border-violet-500 dark:hover:border-violet-500 hover:bg-violet-50 dark:hover:bg-violet-500/10 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-all duration-200">
               <Download
                 size={15}
                 className="group-hover:translate-y-0.5 transition-transform duration-200"
@@ -166,8 +158,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={0.5}
-            className="flex items-center gap-3"
-          >
+            className="flex items-center gap-3">
             {socialLinks.map((link) => (
               <Link
                 key={link.href}
@@ -175,8 +166,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                className={`p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 transition-all duration-200 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 ${link.bgHover} ${link.textHover} ${link.borderHover} ${link.ring}`}
-              >
+                className={`p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 transition-all duration-200 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 ${link.bgHover} ${link.textHover} ${link.borderHover} ${link.ring}`}>
                 <link.icon size={19} />
               </Link>
             ))}
@@ -188,8 +178,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.85, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-          className="flex justify-center md:justify-end order-1 md:order-2"
-        >
+          className="flex justify-center md:justify-end order-1 md:order-2">
           <div className="relative">
             {/* Outer glow */}
             <div
@@ -207,7 +196,7 @@ export default function Hero() {
             <div className="relative w-60 h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white dark:border-slate-900 shadow-2xl shadow-violet-500/10">
               <Image
                 src="/profile-pic.png"
-                alt="Bilal Ahmed — Creative Frontend Developer based in Rahim Yar Khan, Pakistan"
+                alt="Bilal Ahmed — Full Stack Developer based in Rahim Yar Khan, Pakistan"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 240px, (max-width: 1024px) 288px, 320px"
@@ -220,8 +209,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8, duration: 0.4 }}
-              className="absolute -bottom-2 -left-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl px-4 py-2.5 shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50"
-            >
+              className="absolute -bottom-2 -left-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl px-4 py-2.5 shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">
@@ -235,8 +223,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.9, duration: 0.4 }}
-              className="absolute -top-2 -right-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl px-4 py-2.5 shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50"
-            >
+              className="absolute -top-2 -right-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl px-4 py-2.5 shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50">
               <div className="flex items-center gap-2">
                 <span className="text-lg font-bold text-violet-500">1+</span>
                 <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
@@ -254,9 +241,10 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.5 }}
         aria-hidden="true"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 dark:text-slate-500 motion-safe:animate-bounce"
-      >
-        <span className="text-xs font-medium uppercase tracking-widest">Scroll</span>
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 dark:text-slate-500 motion-safe:animate-bounce">
+        <span className="text-xs font-medium uppercase tracking-widest">
+          Scroll
+        </span>
         <ArrowDown size={16} />
       </motion.div>
     </section>
