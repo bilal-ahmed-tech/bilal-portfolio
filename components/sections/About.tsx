@@ -212,10 +212,10 @@ export default function About() {
               custom={0.2}
               className="flex flex-col gap-3">
               <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
-                Hi! I&apos;m Bilal, a full-stack developer based in Rahim Yar
+                Hi! I&apos;m Bilal, a full stack developer based in Rahim Yar
                 Khan, Pakistan. I create modern web experiences that blend
-                thoughtful UI design, strong frontend architecture, and reliable
-                backend functionality into one seamless product.
+                thoughtful UI design, robust backend architecture with Express &amp; MongoDB,
+                and scalable full-stack performance into one seamless product.
               </p>
               <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
                 I&apos;m available for freelance and contract work, helping
@@ -263,7 +263,7 @@ export default function About() {
               custom={0.5}
               href="/Bilal-CV.pdf"
               download
-              className="group inline-flex mx-auto md:mx-0 items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 active:scale-[0.97] active:bg-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 text-white font-medium transition-all duration-200 shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40 w-fit"
+              className="group inline-flex mx-auto items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 active:scale-[0.97] active:bg-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 text-white font-medium transition-all duration-200 shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40 w-fit"
               aria-label="Download CV (PDF)">
               <Download
                 size={16}

@@ -25,9 +25,9 @@ const getBaseUrl = (): string => {
 export const siteConfig = {
   baseUrl: getBaseUrl(),
   name: "Bilal Ahmed",
-  title: "Bilal Ahmed | Frontend Developer",
+  title: "Bilal Ahmed | Full Stack Developer",
   description:
-    "Frontend developer specializing in React, Next.js, and modern web technologies",
+    "Full stack developer specializing in React, Next.js, Node.js, Express, MongoDB, and modern web technologies",
   author: "Bilal Ahmed",
   email: "bilalahmed19015@gmail.com",
   social: {

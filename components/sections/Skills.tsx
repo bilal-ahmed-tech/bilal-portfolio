@@ -12,6 +12,8 @@ import {
   SiGit,
   SiSwagger,
   SiBootstrap,
+  SiExpress,
+  SiMongodb,
 } from "react-icons/si";
 import { BiLogoVisualStudio } from "react-icons/bi";
 
@@ -53,6 +55,20 @@ const skills: Skill[] = [
     color: "text-black dark:text-black",
     bg: "bg-slate-100 dark:bg-white border-slate-200 dark:border-slate-200 hover:border-slate-300 dark:hover:border-slate-300 hover:bg-slate-200 dark:hover:bg-gray-100",
     level: "Learning",
+  },
+  {
+    name: "Express",
+    icon: SiExpress,
+    color: "text-slate-800 dark:text-slate-100",
+    bg: "bg-slate-500/10 border-slate-500/20 hover:border-slate-500/50 hover:bg-slate-500/20",
+    level: "Intermediate",
+  },
+  {
+    name: "MongoDB",
+    icon: SiMongodb,
+    color: "text-[#47A248]",
+    bg: "bg-emerald-500/10 border-emerald-500/20 hover:border-emerald-500/50 hover:bg-emerald-500/20",
+    level: "Intermediate",
   },
   {
     name: "Tailwind CSS",
@@ -135,9 +151,9 @@ export default function Skills() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="max-w-xl text-slate-500 dark:text-slate-400">
-            I work across the full product stack — building responsive
-            interfaces, wiring up APIs, and delivering maintainable solutions
-            that scale with the product.
+            I work across the full stack — building responsive frontends,
+            robust backend APIs with Express & MongoDB, and delivering maintainable,
+            scalable web solutions.
           </motion.p>
         </div>
 

@@ -82,7 +82,7 @@ export default function Hero() {
             animate="visible"
             custom={0}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-500 dark:text-violet-400 text-sm font-medium mb-6 select-none">
-            <span className="w-2 h-2 rounded-full bg-violet-500 dark:bg-violet-400 animate-pulse" />
+            <span className="w-2  h-2 rounded-full bg-violet-500 dark:bg-violet-400 animate-pulse" />
             Open to freelance & full-time opportunities
           </motion.div>
 
@@ -130,7 +130,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={0.4}
-            className="flex flex-wrap items-center gap-3 mb-10">
+            className="flex flex-wrap items-center justify-center gap-3 mb-10">
             <a
               href="#projects"
               className="group inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 active:scale-[0.97] active:bg-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 text-white font-medium transition-all duration-200 shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40">

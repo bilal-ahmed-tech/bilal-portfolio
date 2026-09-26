@@ -79,7 +79,7 @@ export default function Footer() {
               Bilal<span className="text-violet-500">.</span>
             </Link>
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-              Frontend Developer building fast, accessible, and visually
+              Full Stack Developer building fast, scalable, and visually
               polished web experiences.
             </p>
 

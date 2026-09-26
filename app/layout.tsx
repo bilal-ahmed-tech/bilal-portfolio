@@ -11,15 +11,20 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Bilal Ahmed | Frontend Developer",
+    default: "Bilal Ahmed | Full Stack Developer",
     template: "%s | Bilal Ahmed",
   },
-  description: "Frontend developer specializing in React and Next.js",
+  description:
+    "Full stack developer specializing in React, Next.js, Node.js, Express, and MongoDB",
   keywords: [
-    "Frontend Developer",
+    "Full Stack Developer",
     "React",
     "Next.js",
+    "Node.js",
+    "Express",
+    "MongoDB",
     "JavaScript",
+    "TypeScript",
     "Web Development",
     "UI/UX",
   ],
@@ -29,15 +34,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Bilal Ahmed | Frontend Developer",
-    description: "Frontend developer specializing in React and Next.js",
+    title: "Bilal Ahmed | Full Stack Developer",
+    description:
+      "Full stack developer specializing in React, Next.js, Node.js, Express, and MongoDB",
     siteName: "Bilal Ahmed Portfolio",
     url: siteConfig.baseUrl,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bilal Ahmed | Frontend Developer",
-    description: "Frontend developer specializing in React and Next.js",
+    title: "Bilal Ahmed | Full Stack Developer",
+    description:
+      "Full stack developer specializing in React, Next.js, Node.js, Express, and MongoDB",
     creator: "@bilaltech",
   },
   alternates: {
@@ -62,9 +69,9 @@ export default function RootLayout({
               "@type": "Person",
               name: "Bilal Ahmed",
               url: siteConfig.baseUrl,
-              jobTitle: "Frontend Developer",
+              jobTitle: "Full Stack Developer",
               description:
-                "Frontend developer specializing in React and Next.js",
+                "Full stack developer specializing in React, Next.js, Node.js, Express, and MongoDB",
               image: `${siteConfig.baseUrl}/og-image.png`,
               sameAs: [
                 "https://github.com/bilal-ahmed-tech",

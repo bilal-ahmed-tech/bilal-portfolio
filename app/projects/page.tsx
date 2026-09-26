@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "All projects built by Bilal Ahmed — Frontend Developer",
+  description: "All projects built by Bilal Ahmed — Full Stack Developer",
 };
 
 export default async function ProjectsPage() {
@@ -41,7 +41,7 @@ export default async function ProjectsPage() {
             All Projects
           </h1>
           <p className="max-w-xl text-slate-500 dark:text-slate-400">
-            A collection of everything I&apos;ve built — from landing pages to full React applications.
+            A collection of everything I&apos;ve built — from landing pages to full-stack web applications.
           </p>
         </div>
 
